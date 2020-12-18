@@ -1,0 +1,41 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/dist/apps/api/index.js",
+      "runtimeExecutable": "node",
+      "outputCapture": "std",
+      "env": {
+        "NODE_ENV": "development",
+        "SERVER_PORT": "3007",
+        "DB_HOST": "0.0.0.0",
+        "DB_PORT": "3306",
+        "DB_USER": "root",
+        "DB_PASSWORD": "123123",
+        "DB_DATABASE": "wam",
+        "JWT_PRIVATE_KEY": "psychotherapynetwork",
+        "JWT_EXPRIRES_IN": "480" /*time in minutes*/,
+        "AWS_ACCESS_KEY_ID": "AKIA2W6QAOYV4HLTGY75",
+        "AWS_SECRET_ACCESS_KEY": "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",
+        "AWS_DEFAULT_REGION": "us-west-2",
+        "REDIS_ENDPOINT": "0.0.0.0",
+        "REDIS_PORT": "6379",
+        "AWS_S3_BUCKET": "dev-psynet-upload",
+        "VERIFICATION_URL": "https://github.com/",
+        "JWT_REFRESH_KEY": "https://github.com/",
+        "SERVER_LOG_PATH": "https://github.com/",
+        "EMAIL_SYSTEM": "admin@devblock.net",
+        "EXPIRE_RESET_CODE_SECOND": "3600",
+        "RETRY_LOGIN_COUNT": "5",
+        "ATTEMPT_LOCK_ACCOUNT_SECOND": "1800"
+      }
+    }
+  ]
+}

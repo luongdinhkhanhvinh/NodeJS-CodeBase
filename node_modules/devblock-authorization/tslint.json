@@ -1,0 +1,14 @@
+{
+    "extends": [
+      "tslint:latest",
+      "tslint-config-prettier",
+      "tslint-config-airbnb"
+    ],
+    "rules": {
+      "class-name": true,
+      "max-line-length": false,
+      "no-empty": false,
+      "no-empty-interface": false
+    }
+  
+  }

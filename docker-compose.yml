@@ -1,0 +1,63 @@
+version: "3.5"
+
+services:
+  db:
+    image: mysql:8.0.21
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123123
+      MYSQL_DATABASE: wam
+    ports:
+      - "3306:3306"
+    command: --sql_mode="" --log_bin_trust_function_creators=ON
+
+  # Redis
+  redis:
+    image: redis:4.0.5-alpine
+    hostname: redis
+    ports:
+      - 6379:6379
+    restart: always
+
+  # app:
+  #   depends_on:
+  #     - db
+  #     - redis
+  #   build:
+  #     context: ./
+  #   # restart: always
+  #   # volumes:
+  #   #   - ~/.ssh:/home/user/.ssh
+  #   #   - ./dist:/opt/app
+  #   environment:
+  #     NODE_ENV: development
+  #     SERVER_PORT: 3007
+  #     DB_HOST: db
+  #     DB_PORT: 3306
+  #     DB_USER: root
+  #     DB_PASSWORD: 123123
+  #     DB_DATABASE: wam
+  #     JWT_PRIVATE_KEY: psychotherapynetwork
+  #     JWT_EXPRIRES_IN: 480 # time in minutes
+  #     AWS_DEFAULT_REGION: us-west-2
+  #     AWS_ACCESS_KEY_ID: AKIA4SXDJEBYDQI5JQGP
+  #     AWS_SECRET_ACCESS_KEY: replace
+  #     REDIS_ENDPOINT: redis
+  #     REDIS_PORT: 6379
+  #     VERIFICATION_URL: http://localhost:8080
+  #     VERIFICATION_COUNSELOR_URL: "http://staging-pn-counselor-devblock.s3-website-us-west-2.amazonaws.com",
+  #     VERIFICATION_CLIENT_URL: "http://staging-pn-client-devblock.s3-website-us-west-2.amazonaws.com",
+  #     AWS_S3_BUCKET: "dev-psynet-upload"
+  #     # SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
+  #   ports:
+  #     - "8087:3007"
+  #   links:
+  #     - db
+  #     - redis
+
+volumes:
+  db_data:
